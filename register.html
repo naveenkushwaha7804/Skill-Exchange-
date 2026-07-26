@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Skill Exchange Hub</title>
+    <style>
+        /* Modern Collaborative Skill-Hub Theme */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0f172a; /* Professional Dark Tech Slate */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating Skill Particles in Background */
+        .skill-network {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .skill-badge {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 8px 16px;
+            border-radius: 50px;
+            color: #cbd5e1;
+            font-size: 13px;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            animation: floatSkill 12s infinite alternate ease-in-out;
+        }
+        
+        .sb1 { top: 12%; left: 8%; animation-delay: 0s; }
+        .sb2 { top: 75%; left: 12%; animation-delay: 2s; }
+        .sb3 { top: 20%; right: 10%; animation-delay: 4s; }
+        .sb4 { top: 70%; right: 8%; animation-delay: 1s; }
+        .sb5 { top: 45%; left: 18%; animation-delay: 3s; }
+        .sb6 { top: 40%; right: 15%; animation-delay: 5s; }
+
+        @keyframes floatSkill {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-40px) rotate(5deg); background: rgba(99, 102, 241, 0.15); border-color: rgba(99, 102, 241, 0.4); }
+        }
+
+        /* Glassmorphic Hub Container */
+        .container {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 35px 40px;
+            border-radius: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            width: 100%;
+            max-width: 460px;
+            box-sizing: border-box;
+            z-index: 2;
+        }
+        
+        h2 {
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 5px;
+            font-weight: 800;
+            font-size: 26px;
+            letter-spacing: -0.5px;
+        }
+        .tagline {
+            text-align: center;
+            font-size: 13px;
+            color: #94a3b8;
+            margin-bottom: 25px;
+        }
+        .tagline span {
+            color: #38bdf8;
+        }
+        
+        /* Interactive Tech Inputs */
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 12px 16px;
+            margin: 8px 0;
+            border: 1px solid #334155;
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 14px;
+            box-sizing: border-box;
+            font-size: 14px;
+            color: #f8fafc;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        input::placeholder {
+            color: #64748b;
+        }
+        input:focus, select:focus {
+            border-color: #6366f1;
+            background: #0f172a;
+            box-shadow: 0 0 12px rgba(99, 102, 241, 0.3);
+        }
+        
+        select option {
+            background: #1e293b;
+            color: #f8fafc;
+        }
+        
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin: 4px 0 12px 2px;
+        }
+        .checkbox-container input[type="checkbox"] {
+            margin-right: 8px;
+            cursor: pointer;
+            accent-color: #6366f1;
+        }
+        .checkbox-container label {
+            font-size: 13px;
+            color: #94a3b8;
+            cursor: pointer;
+        }
+        
+        .btn {
+            width: 100%;
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 15px;
+            box-shadow: 0 4px 18px rgba(99, 102, 241, 0.4);
+            transition: all 0.2s ease;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 22px rgba(99, 102, 241, 0.5);
+        }
+        
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #94a3b8;
+        }
+        .login-link a {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Success Screen Design */
+        #successSection {
+            text-align: center;
+            padding: 25px 10px;
+        }
+        .success-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+            display: inline-block;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .success-title {
+            color: #34d399;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+        .success-text {
+            color: #94a3b8;
+            font-size: 15px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Skill Network Background Layer -->
+    <div class="skill-network">
+        <div class="skill-badge sb1">💻 Python & Java</div>
+        <div class="skill-badge sb2">🎨 UI/UX Design</div>
+        <div class="skill-badge sb3">📈 Digital Marketing</div>
+        <div class="skill-badge sb4">🗣️ Public Speaking</div>
+        <div class="skill-badge sb5">🎬 Video Editing</div>
+        <div class="skill-badge sb6">📝 Content Writing</div>
+    </div>
+
+    <div class="container">
+        <!-- FORM SECTION -->
+        <div id="formSection">
+            <h2>Join the Hub</h2>
+            <p class="tagline">Barter your <span>Skills</span>. Learn for <span>Free</span>.</p>
+            
+            <form id="registerForm">
+                <input type="text" id="name" placeholder="Full Name" required>
+                <input type="email" id="email" placeholder="Email Address" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                
+                <div class="checkbox-container">
+                    <input type="checkbox" id="showPasswordToggle">
+                    <label for="showPasswordToggle">Show Passwords</label>
+                </div>
+
+                <input type="text" id="skillsOffered" placeholder="What skill can you teach? (e.g. Java)">
+                <input type="text" id="skillsWanted" placeholder="What skill do you want to learn?">
+                
+                <select id="skillLevel">
+                    <option value="">Select Your Level</option>
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Advanced">Advanced</option>
+                </select>
+                
+                <input type="text" id="extraField" placeholder="About Yourself / Bio">
+                
+                <button type="submit" class="btn">Create Free Account</button>
+            </form>
+
+            <p class="login-link">
+                Already a member? 
+                <a href="login.html">Login Here</a>
+            </p>
+        </div>
+
+        <!-- SUCCESS SECTION -->
+        <div id="successSection" style="display: none;">
+            <div class="success-icon">🤝</div>
+            <div class="success-title">Welcome to the Community!</div>
+            <p class="success-text">Your registration was successful. You are now ready to share and exchange your knowledge with others!</p>
+            <button class="btn" onclick="window.location.href='login.html'">Go to Login Page</button>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById("registerForm");
+        const passwordInput = document.getElementById("password");
+        const confirmPasswordInput = document.getElementById("confirmPassword");
+        const showPasswordToggle = document.getElementById("showPasswordToggle");
+
+        showPasswordToggle.addEventListener("change", function() {
+            const type = this.checked ? "text" : "password";
+            passwordInput.type = type;
+            confirmPasswordInput.type = type;
+        });
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const password = passwordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
+            const skillsOffered = document.getElementById("skillsOffered").value;
+            const skillsWanted = document.getElementById("skillsWanted").value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, password, skillsOffered, skillsWanted })
+                });
+                const data = await response.json();
+                if (data.success) {
+                    document.getElementById("formSection").style.display = "none";
+                    document.getElementById("successSection").style.display = "block";
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("Failed to connect to the server. Please try again.");
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(
+        135deg,
+        #a18cd1,
+        #fbc2eb
+    );
+}
+
+.container{
+
+    width:500px;
+
+    background:rgba(255,255,255,0.95);
+
+    padding:40px;
+
+    border-radius:25px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,0.15);
+
+    text-align:center;
+}
+
+h1{
+    color:#7c3aed;
+    margin-bottom:10px;
+}
+
+.tagline{
+    color:#666;
+    margin-bottom:25px;
+    line-height:1.5;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+}
+
+input,
+select,
+textarea{
+
+    width:100%;
+
+    padding:14px;
+
+    margin:10px 0;
+
+    border:2px solid #e5d4ff;
+
+    border-radius:12px;
+
+    font-size:15px;
+
+    outline:none;
+
+    transition:0.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+
+    border-color:#a855f7;
+
+    box-shadow:0 0 10px rgba(168,85,247,0.3);
+}
+
+textarea{
+
+    height:100px;
+
+    resize:none;
+}
+
+button{
+
+    width:100%;
+
+    padding:14px;
+
+    margin-top:10px;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    color:white;
+
+    cursor:pointer;
+
+    background:linear-gradient(
+        90deg,
+        #a855f7,
+        #ec4899
+    );
+
+    transition:0.3s;
+}
+
+button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 20px rgba(168,85,247,0.4);
+}
+
+.login-link{
+
+    margin-top:20px;
+
+    color:#555;
+}
+
+.login-link a{
+
+    color:#a855f7;
+
+    text-decoration:none;
+
+    font-weight:bold;
+}
+
+.login-link a:hover{
+
+    color:#ec4899;
+}
